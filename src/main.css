@@ -1,0 +1,122 @@
+body {
+    background-color: #212121 !important;
+}
+
+.grid-wrapper {
+  /*you can use display grid and start adding cards in a row*/
+  /*display: grid;*/
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center; /*only using it to showcase the card at the center here*/
+}
+
+.card {
+    max-width: 300px; /*only using it for better showcase here*/
+    margin: 50px 10px; /*only using it for better showcase here*/
+    height:500px;
+}
+  
+.card-container {
+    display: -ms-grid;
+    display: grid;
+    -webkit-perspective: 700px;
+            perspective: 700px;
+    padding-bottom: 30px;
+}
+  
+.card-title p, h4, h5 {
+    font-family: 'Nunito' !important;
+    text-align: center;
+    color: white;
+}
+  
+.card-text {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 3;
+   -webkit-box-orient: vertical;
+   line-height: 20px;
+   height: 100px;
+    font-family: 'Nunito' !important;
+    text-align: center;
+    color: white;
+}
+  
+.card-flip {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-rows: 1fr;
+    -ms-grid-columns: 1fr;
+        grid-template: 1fr / 1fr;
+        grid-template-areas: "frontAndBack";
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+    -webkit-transition: all 0.7s ease;
+    transition: all 0.7s ease;
+}
+  
+.card-flip div {
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+}
+  
+.front {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: frontAndBack;
+    background-color: #383428 !important;
+}
+
+.back {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: frontAndBack;
+    -webkit-transform: rotateY(-180deg);
+            transform: rotateY(-180deg);
+    background-color: #383428 !important;
+    margin: 0;
+    padding: 0;
+}
+  
+.card-container:hover .card-flip {
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+}
+
+.btn {
+    color: #383428 !important;
+}
+
+.btn:hover {
+    color: white !important;
+}
+
+.rating {
+    text-decoration: none;
+    color: #ff9800 !important;
+}
+
+.rating:hover {
+    text-decoration: none;
+    color: #ffcc80 !important;
+}
+  
+.movie {
+    position: fixed;
+    z-index: -1;
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    bottom: 0;
+  }
